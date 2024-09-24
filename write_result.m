@@ -1,8 +1,7 @@
 suppressed(:, ch) = m - N*x; 
-toc
+t = toc
 corrs = corrcoef([suppressed(:, ch), pure(:, ch), mixed(:, ch)]);
-corrs(2, 1)
+corr = corrs(2, 1)
 
-
-
-audiowrite('suppressed.wav', suppressed, Fs)
+T = [T; {algorithm, t, corr}]
+% audiowrite('suppressed.wav', suppressed, Fs)
